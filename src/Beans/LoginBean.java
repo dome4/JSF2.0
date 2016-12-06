@@ -94,6 +94,16 @@ public class LoginBean implements Serializable {
 	}
 
 	/**
+	 * Methode loggt den aktuellen User aus
+	 * 
+	 * @return index.xhtml
+	 */
+	public String logout() {
+		this.studentBean = new StudentBean();
+		return "index";
+	}
+
+	/**
 	 * Methode fügt einen neuen Studenten hinzu
 	 * 
 	 * @param student

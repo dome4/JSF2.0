@@ -150,7 +150,10 @@
 									<a href="#" class="btn btn-default btn-flat">Profile</a>
 								</div>
 								<div class="pull-right">
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+									<h:form>
+										<h:commandLink value="Sign out" action="#{loginBean.logout}"
+											class="btn btn-default btn-flat" />
+									</h:form>
 								</div>
 							</li>
 						</ul>

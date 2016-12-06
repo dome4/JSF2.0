@@ -27,7 +27,10 @@ public class StudentBean implements Serializable {
 	@Max(100)
 	private Integer age;
 	
-	public StudentBean(){}
+	public StudentBean(){
+		this.username = "";
+		this.password ="";
+	}
 	public StudentBean(String string){
 		this.username = string;
 		this.password = "pw:"+string;
