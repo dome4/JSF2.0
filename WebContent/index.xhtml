@@ -1,70 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
-Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.html"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<!-- facelets sind für den view zuständig -->
-<h:body class="hold-transition skin-blue sidebar-mini">
-	<div class="wrapper">
-		<ui:composition template="/WEB-INF/templates/commonLayout.xhtml">
 
-			<ui:define name="title">Index</ui:define>
-			<ui:define name="content">
-				<!-- Content Header (Page header) -->
-				<div class="content-header">
-					<h1>
-						Page Header <small>Optional description</small>
-					</h1>
-					<ol class="breadcrumb">
-						<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-						<li class="active">Here</li>
-					</ol>
-				</div>
-				<!-- Main content -->
-				<div class="content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="box">
-								<div class="box-header with-border">
-									<h3>Herzlich willkommen!!!</h3>
-								</div>
-								<div class="box-body">
-									<h:form>
-										<h:outputText
-											value="Sie sind noch nicht angemeldet. Bitte anmelden."
-											rendered="#{!loginBean.studentBean.angemeldet}" />
-										<h:outputText
-											value="Sie sind als #{loginBean.studentBean.username} angemeldet."
-											rendered="#{loginBean.studentBean.angemeldet}" />
-										<br />
-										<h:commandLink value="Login" action="/login.xhtml"
-											rendered="#{!loginBean.studentBean.angemeldet }" />
-										<h:commandLink value="Benutzer wechseln" action="/login.xhtml"
-											rendered="#{loginBean.studentBean.angemeldet }" />
-									</h:form>
-									<br />
-									<h:outputText
-										value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
-										rendered="#{loginBean.studentBean.angemeldet}" />
-									<br /> <br />
-									<h:dataTable rendered="#{loginBean.studentBean.angemeldet}"
-										value="#{loginBean.liste}" var="student">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<h1>
+				Page Header <small>Optional description</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+				<li class="active">Here</li>
+			</ol>
+		</div>
+		<!-- Main content -->
+		<div class="content">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box">
+						<div class="box-header with-border">
+							<h3>Herzlich willkommen!!!</h3>
+						</div>
+						<div class="box-body">
+							<h:form>
+								<h:outputText
+									value="Sie sind noch nicht angemeldet. Bitte anmelden."
+									rendered="#{!loginBean.studentBean.angemeldet}" />
+								<h:outputText
+									value="Sie sind als #{loginBean.studentBean.username} angemeldet."
+									rendered="#{loginBean.studentBean.angemeldet}" />
+								<br />
+								<h:commandLink value="Login" action="/login.xhtml"
+									rendered="#{!loginBean.studentBean.angemeldet }" />
+								<h:commandLink value="Benutzer wechseln" action="/login.xhtml"
+									rendered="#{loginBean.studentBean.angemeldet }" />
+							</h:form>
+							<br />
+							<h:outputText
+								value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
+								rendered="#{loginBean.studentBean.angemeldet}" />
+							<br /> <br />
+							<h:dataTable rendered="#{loginBean.studentBean.angemeldet}"
+								value="#{loginBean.liste}" var="student">
 
-										<h:column>#{student.username}</h:column>
-										<h:column> #{student.password} </h:column>
-									</h:dataTable>
-								</div>
-							</div>
+								<h:column>#{student.username}</h:column>
+								<h:column> #{student.password} </h:column>
+							</h:dataTable>
 						</div>
 					</div>
 				</div>
-				<!-- /.content -->
-			</ui:define>
-		</ui:composition>
-	</div>
-	<!-- /.wrapper -->
-</h:body>
-</html>
+			</div>
+		</div>
+		<!-- /.content -->
+	</ui:define>
+</ui:composition>

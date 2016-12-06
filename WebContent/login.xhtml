@@ -1,93 +1,85 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
-Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.html"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-	<title>JSF</title>
-</h:head>
-<h:body>
-	<ui:composition template="/WEB-INF/templates/commonLayout.xhtml">
-		<ui:define name="title">Login</ui:define>
+	<ui:define name="title">Login</ui:define>
 
-		<ui:define name="content">
-			<div class="content-header">
-				<h1>Account Login</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-					<li class="active">Here</li>
-				</ol>
-			</div>
-			<!-- Main content -->
-			<div class="content">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="box">
-							<div class="box-header with-border"></div>
-							<div class="box-body">
-								<table>
-									<h:form>
-										<tr>
-											<td><h:outputLabel for="username" value="Username" /></td>
-											<td><h:inputText id="username"
-													value="#{loginBean.studentBean.username}"
-													valueChangeListener="#{loginBean.changedUser}" /></td>
-											<td>
-												<!-- hier wird die Fehlermedlung zurückgegeben --> <h:message
-													for="username" class="alert alert-danger alert-box" />
-											</td>
-										</tr>
-										<tr>
-											<td><h:outputLabel for="age" value="Alter" /></td>
-											<td><h:inputText id="age"
-													value="#{loginBean.studentBean.age}" /></td>
-											<td><h:message for="age"
-													class="alert alert-danger alert-box" /></td>
-										</tr>
-										<tr>
-											<td>Geschlecht</td>
-											<td><h:selectOneRadio id="geschlecht" required="false"
-													value="#{loginBean.studentBean.geschlecht}"
-													layout="lineDirection">
-													<f:selectItem itemLabel="weiblich" itemValue="w" />
-													<f:selectItem itemLabel="männlich" itemValue="m" />
-												</h:selectOneRadio></td>
-											<td><h:message for="geschlecht"
-													class="alert alert-danger alert-box" /></td>
-										</tr>
-										<tr>
-											<td><h:outputLabel for="password" value="Password" /></td>
-											<td><h:inputSecret id="password"
-													value="#{loginBean.studentBean.password}" /></td>
-											<td><h:message for="password"
-													class="alert alert-danger alert-box" /></td>
-										</tr>
-										<tr>
-											<td>AGB akzeptieren</td>
-											<td><h:selectBooleanCheckbox id="agb"
-													value="#{loginBean.studentBean.agb}" /></td>
-											<td><h:message for="agb"
-													class="alert alert-danger alert-box" /></td>
-										</tr>
-										<tr>
-											<td colspan="2"><h:commandButton id="button"
-													value="Login" binding="#{loginBean.button}"
-													action="#{loginBean.login}" /></td>
-											<td><h:message for="button"
-													class="alert alert-danger alert-box" /></td>
-										</tr>
-									</h:form>
-								</table>
-							</div>
+	<ui:define name="content">
+		<div class="content-header">
+			<h1>Account Login</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+				<li class="active">Here</li>
+			</ol>
+		</div>
+		<!-- Main content -->
+		<div class="content">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box">
+						<div class="box-header with-border"></div>
+						<div class="box-body">
+							<table>
+								<h:form>
+									<tr>
+										<td><h:outputLabel for="username" value="Username" /></td>
+										<td><h:inputText id="username"
+												value="#{loginBean.studentBean.username}"
+												valueChangeListener="#{loginBean.changedUser}" /></td>
+										<td>
+											<!-- hier wird die Fehlermedlung zurückgegeben --> <h:message
+												for="username" class="alert alert-danger alert-box" />
+										</td>
+									</tr>
+									<tr>
+										<td><h:outputLabel for="age" value="Alter" /></td>
+										<td><h:inputText id="age"
+												value="#{loginBean.studentBean.age}" /></td>
+										<td><h:message for="age"
+												class="alert alert-danger alert-box" /></td>
+									</tr>
+									<tr>
+										<td>Geschlecht</td>
+										<td><h:selectOneRadio id="geschlecht" required="false"
+												value="#{loginBean.studentBean.geschlecht}"
+												layout="lineDirection">
+												<f:selectItem itemLabel="weiblich" itemValue="w" />
+												<f:selectItem itemLabel="männlich" itemValue="m" />
+											</h:selectOneRadio></td>
+										<td><h:message for="geschlecht"
+												class="alert alert-danger alert-box" /></td>
+									</tr>
+									<tr>
+										<td><h:outputLabel for="password" value="Password" /></td>
+										<td><h:inputSecret id="password"
+												value="#{loginBean.studentBean.password}" /></td>
+										<td><h:message for="password"
+												class="alert alert-danger alert-box" /></td>
+									</tr>
+									<tr>
+										<td>AGB akzeptieren</td>
+										<td><h:selectBooleanCheckbox id="agb"
+												value="#{loginBean.studentBean.agb}" /></td>
+										<td><h:message for="agb"
+												class="alert alert-danger alert-box" /></td>
+									</tr>
+									<tr>
+										<td colspan="2"><h:commandButton id="button"
+												value="Login" binding="#{loginBean.button}"
+												action="#{loginBean.login}" /></td>
+										<td><h:message for="button"
+												class="alert alert-danger alert-box" /></td>
+									</tr>
+								</h:form>
+							</table>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- /.content -->
-		</ui:define>
-	</ui:composition>
-</h:body>
-</html>
+		</div>
+		<!-- /.content -->
+	</ui:define>
+</ui:composition>

@@ -1,83 +1,72 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
-Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<!-- facelets sind für den view zuständig -->
 
-<h:body>
+	<!-- Left side column. contains the logo and sidebar -->
+	<div class="main-sidebar" style="display: block;">
 
-	<ui:composition>
-		<!-- Left side column. contains the logo and sidebar -->
-		<div class="main-sidebar" style="display: block;">
-
-			<!-- sidebar: style can be found in sidebar.less -->
-			<div class="sidebar" style="display: block;">
-				<!-- Sidebar user panel (optional) -->
-				<div class="user-panel">
-					<div class="pull-left image">
-						<h:graphicImage library="images" name="user2-160x160.jpg"
-							alt="User Image" class="img-circle" />
-					</div>
-					<div class="pull-left info">
-						<p>
-							<h:outputText value="#{loginBean.studentBean.username}"
-								rendered="#{loginBean.studentBean.angemeldet}" />
-						</p>
-						<!-- Status -->
-						<a href="#"> <h:panelGroup
-								rendered="#{loginBean.studentBean.angemeldet}">
-								<!-- online -->
-								<i class="fa fa-circle text-success"></i> Online
-						</h:panelGroup> <h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
-								<!-- offline -->
-								<i class="fa fa-circle text-danger"></i> Offline
-						</h:panelGroup>
-						</a>
-					</div>
+		<!-- sidebar: style can be found in sidebar.less -->
+		<div class="sidebar" style="display: block;">
+			<!-- Sidebar user panel (optional) -->
+			<div class="user-panel">
+				<div class="pull-left image">
+					<h:graphicImage library="images" name="user2-160x160.jpg"
+						alt="User Image" class="img-circle" />
 				</div>
-
-				<!-- search form (Optional) -->
-				<form action="#" method="get" class="sidebar-form">
-					<div class="input-group">
-						<input type="text" name="q" class="form-control" /> <span
-							class="input-group-btn">
-							<button type="submit" name="search" id="search-btn"
-								class="btn btn-flat">
-								<i class="fa fa-search"></i>
-							</button>
-						</span>
-					</div>
-				</form>
-				<!-- /.search form -->
-				<!-- Sidebar Menu -->
-				<ul class="sidebar-menu">
-					<li class="header">HEADER</li>
-					<!-- Optionally, you can add icons to the links -->
-					<li class="active"><a href="#"><i class="fa fa-link"></i>
-							<span>Link</span></a></li>
-					<li><a href="#"><i class="fa fa-link"></i> <span>Another
-								Link</span></a></li>
-					<li class="treeview"><a href="#"><i class="fa fa-link"></i>
-							<span>Multilevel</span> <span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
-						</span> </a>
-						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i>Link in
-									level 2</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i>Link in
-									level 2</a></li>
-						</ul></li>
-				</ul>
-				<!-- /.sidebar-menu -->
+				<div class="pull-left info">
+					<p>
+						<h:outputText value="#{loginBean.studentBean.username}"
+							rendered="#{loginBean.studentBean.angemeldet}" />
+					</p>
+					<!-- Status -->
+					<a href="#"> <h:panelGroup
+							rendered="#{loginBean.studentBean.angemeldet}">
+							<!-- online -->
+							<i class="fa fa-circle text-success"></i> Online
+						</h:panelGroup> <h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
+							<!-- offline -->
+							<i class="fa fa-circle text-danger"></i> Offline
+						</h:panelGroup>
+					</a>
+				</div>
 			</div>
-			<!-- /.sidebar -->
-		</div>
-		<!-- /aside -->
-	</ui:composition>
 
-</h:body>
-</html>
+			<!-- search form (Optional) -->
+			<form action="#" method="get" class="sidebar-form">
+				<div class="input-group">
+					<input type="text" name="q" class="form-control" /> <span
+						class="input-group-btn">
+						<button type="submit" name="search" id="search-btn"
+							class="btn btn-flat">
+							<i class="fa fa-search"></i>
+						</button>
+					</span>
+				</div>
+			</form>
+			<!-- /.search form -->
+			<!-- Sidebar Menu -->
+			<ul class="sidebar-menu">
+				<li class="header">HEADER</li>
+				<!-- Optionally, you can add icons to the links -->
+				<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+				<li><a href="#"><i class="fa fa-link"></i> <span>Another
+							Link</span></a></li>
+				<li class="treeview"><a href="#"><i class="fa fa-link"></i>
+						<span>Multilevel</span> <span class="pull-right-container">
+							<i class="fa fa-angle-left pull-right"></i>
+					</span> </a>
+					<ul class="treeview-menu">
+						<li><a href="#"><i class="fa fa-circle-o"></i>Link in
+								level 2</a></li>
+						<li><a href="#"><i class="fa fa-circle-o"></i>Link in
+								level 2</a></li>
+					</ul></li>
+			</ul>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+	</div>
+	<!-- /aside -->
+</ui:composition>
