@@ -14,11 +14,11 @@
 		<!-- Main content -->
 		<div class="content">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-xs-12 col-md-6 col-lg-4">
 					<div class="box">
 						<div class="box-header with-border"></div>
 						<div class="box-body">
-							<table>
+							<table class="table">
 								<h:form>
 									<tr>
 										<td><h:outputLabel for="username" value="Username" /></td>
@@ -65,7 +65,7 @@
 									<tr>
 										<td colspan="2"><h:commandButton id="button"
 												value="Login" binding="#{loginBean.button}"
-												action="#{loginBean.login}" /></td>
+												action="#{loginBean.login}" class="btn btn-default btn-flat"/></td>
 										<td><h:message for="button"
 												class="alert alert-danger alert-box" /></td>
 									</tr>

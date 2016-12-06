@@ -17,47 +17,71 @@
 		<!-- Main content -->
 		<div class="content">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<div class="box">
 						<div class="box-header with-border">
-							<h3>Herzlich willkommen!!!</h3>
+							<h3>Herzlich willkommen!</h3>
 						</div>
 						<div class="box-body">
-							<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
-								<h:form>
+							<h:form>
+								<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
+									<!-- angemeldet -->
 									<h:outputText
 										value="Sie sind noch nicht angemeldet. Bitte anmelden." />
 									<br />
-									<h:commandLink value="Login" action="/login.xhtml" />
-								</h:form>
-							</h:panelGroup>
-							<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
-								<h:form>
+									<br />
+									<h:commandLink value="Login" action="/login.xhtml"
+										class="btn btn-default btn-flat" />
+								</h:panelGroup>
+								<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
+									<!-- nicht angemeldet -->
 									<h:outputText
 										value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
+										<br />
+									<h:outputText
+										value="Gender: #{loginBean.studentBean.geschlecht}" />
 									<br />
-									<h:commandLink value="Benutzer wechseln" action="/login.xhtml" />
-								</h:form>
-								<br />
-								<h:outputText
-									value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
-									rendered="#{loginBean.studentBean.admin}" />
-								<br />
-								<br />
-								<h:dataTable rendered="#{loginBean.studentBean.admin}"
-									value="#{loginBean.liste}" var="student"
-									styleClass="table table-striped">
+									<br />
+									<h:commandLink value="Benutzer wechseln" action="/login.xhtml"
+										class="btn btn-default btn-flat" />
+								</h:panelGroup>
+							</h:form>
+						</div>
+					</div>
+				</div>
+				<!-- /.col-md-6 -->
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header with-border">
+							<h3>Berechneter Content</h3>
+						</div>
+						<div class="box-body"></div>
+					</div>
+				</div>
+			</div>
+			<h:panelGroup rendered="#{loginBean.studentBean.admin}">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="box">
+							<div class="box-header with-border">
+								<h3>Hier sehen Sie alle Benutzernamen und die
+									dazugehörenden Passwörter:</h3>
+							</div>
+							<div class="box-body">
 
+								<h:dataTable value="#{loginBean.liste}" var="student"
+									styleClass="table table-striped">
 									<h:column>
 										<f:facet name="header">Username</f:facet>#{student.username}</h:column>
 									<h:column>
 										<f:facet name="header">Password</f:facet>#{student.password} </h:column>
 								</h:dataTable>
-							</h:panelGroup>
+
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</h:panelGroup>
 		</div>
 		<!-- /.content -->
 	</ui:define>
