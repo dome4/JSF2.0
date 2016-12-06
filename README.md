@@ -1,8 +1,9 @@
 #JSF2.0
 Our first web app based on the JavaServerFaces-framework.
+(preview.png)
 
 ##Installation
-* git clone <repo>
+* git clone
 * import project in eclipse
 * project -> Properties -> Project Facets -> change Configuration to JavaServerFaces v2.2 Project -> Apply -> OK
 * right click to the project -> Run As -> Run on Server
