@@ -83,7 +83,7 @@ public class LoginBean implements Serializable {
 		}
 		if (studentBean.getUsername().equals(user) && studentBean.getPassword().equals(pw) && !user.isEmpty()) {
 			studentBean.setAngemeldet(true);
-			return "/index.xhtml";
+			return "index";
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 
