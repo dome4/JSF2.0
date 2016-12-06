@@ -1,6 +1,6 @@
 #JSF2.0
 Our first web app based on the JavaServerFaces-framework.
-(preview.png)
+![Login Page of our Web App](.github/preview.png)
 
 ##Installation
 * git clone
