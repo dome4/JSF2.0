@@ -23,33 +23,37 @@
 							<h3>Herzlich willkommen!!!</h3>
 						</div>
 						<div class="box-body">
-							<h:form>
-								<h:outputText
-									value="Sie sind noch nicht angemeldet. Bitte anmelden."
-									rendered="#{!loginBean.studentBean.angemeldet}" />
-								<h:outputText
-									value="Sie sind als #{loginBean.studentBean.username} angemeldet."
-									rendered="#{loginBean.studentBean.angemeldet}" />
+							<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
+								<h:form>
+									<h:outputText
+										value="Sie sind noch nicht angemeldet. Bitte anmelden." />
+									<br />
+									<h:commandLink value="Login" action="/login.xhtml" />
+								</h:form>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
+								<h:form>
+									<h:outputText
+										value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
+									<br />
+									<h:commandLink value="Benutzer wechseln" action="/login.xhtml" />
+								</h:form>
 								<br />
-								<h:commandLink value="Login" action="/login.xhtml"
-									rendered="#{!loginBean.studentBean.angemeldet }" />
-								<h:commandLink value="Benutzer wechseln" action="/login.xhtml"
-									rendered="#{loginBean.studentBean.angemeldet }" />
-							</h:form>
-							<br />
-							<h:outputText
-								value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
-								rendered="#{loginBean.studentBean.admin}" />
-							<br /> <br />
-							<h:dataTable rendered="#{loginBean.studentBean.admin}"
-								value="#{loginBean.liste}" var="student"
-								styleClass="table table-striped">
+								<h:outputText
+									value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
+									rendered="#{loginBean.studentBean.admin}" />
+								<br />
+								<br />
+								<h:dataTable rendered="#{loginBean.studentBean.admin}"
+									value="#{loginBean.liste}" var="student"
+									styleClass="table table-striped">
 
-								<h:column>
-									<f:facet name="header">Username</f:facet>#{student.username}</h:column>
-								<h:column>
-									<f:facet name="header">Password</f:facet>#{student.password} </h:column>
-							</h:dataTable>
+									<h:column>
+										<f:facet name="header">Username</f:facet>#{student.username}</h:column>
+									<h:column>
+										<f:facet name="header">Password</f:facet>#{student.password} </h:column>
+								</h:dataTable>
+							</h:panelGroup>
 						</div>
 					</div>
 				</div>
