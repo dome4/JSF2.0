@@ -1,5 +1,5 @@
 #JSF2.0
-Our first web app based on the javaserverfaces-framework.
+Our first web app based on the JavaServerFaces-framework.
 
 ##Installation
 * git clone <repo>
