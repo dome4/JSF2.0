@@ -33,6 +33,18 @@ public class StudentBean implements Serializable {
 		this.password = "pw:"+string;
 	}
 	
+	/**
+	 * Methode prüft, ob der aktuelle User der Admin ist
+	 * 
+	 * @return true or false
+	 */
+	public boolean isAdmin(){
+		if(this.username.equalsIgnoreCase("admin")){
+			return true;
+		}
+		return false;
+	}
+	
 	/* alle noetigen Methoden einer JavaBean angeben */
 	public String getUsername() {
 		return username;

@@ -39,9 +39,9 @@
 							<br />
 							<h:outputText
 								value="Hier sehen Sie alle Benutzernamen und die dazugehörenden Passwörter:"
-								rendered="#{loginBean.studentBean.angemeldet}" />
+								rendered="#{loginBean.studentBean.admin}" />
 							<br /> <br />
-							<h:dataTable rendered="#{loginBean.studentBean.angemeldet}"
+							<h:dataTable rendered="#{loginBean.studentBean.admin}"
 								value="#{loginBean.liste}" var="student"
 								styleClass="table table-striped">
 
