@@ -25,7 +25,7 @@
 						<div class="box-body">
 							<h:form>
 								<h:panelGroup rendered="#{!loginBean.studentBean.angemeldet}">
-									<!-- angemeldet -->
+									<!-- nicht angemeldet -->
 									<h:outputText
 										value="Sie sind noch nicht angemeldet. Bitte anmelden." />
 									<br />
@@ -34,7 +34,7 @@
 										class="btn btn-default btn-flat" />
 								</h:panelGroup>
 								<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
-									<!-- nicht angemeldet -->
+									<!-- angemeldet -->
 									<h:outputText
 										value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
 										<br />

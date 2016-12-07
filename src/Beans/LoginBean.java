@@ -27,6 +27,7 @@ public class LoginBean implements Serializable {
 			new StudentBean("Dominic")));
 
 	// Login-Button
+	@ManagedProperty(value = "#{UIComponent}")
 	private UIComponent button;
 
 	/* alle nötigen Instanzvariablen deklarieren */
