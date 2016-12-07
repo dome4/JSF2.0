@@ -128,4 +128,17 @@ public class LoginBean implements Serializable {
 
 		return this.studentBean;
 	}
+
+	/**
+	 * Die Methode gibt einen zufälligen Nutzer zurück, um auf der Profil-Seite
+	 * zufällige Usernamen anzuzeigen
+	 * 
+	 * @return StudentBean
+	 */
+	public String randomUser() {
+		int index = (int) (Math.random() * liste.size());
+		StudentBean user = liste.get(index);
+
+		return user.getUsername();
+	}
 }
