@@ -24,12 +24,14 @@
 					<div class="box box-primary">
 						<div class="box-body box-profile">
 
-							<h:graphicImage library="images" name="user4-128x128.jpg"
+							<h:graphicImage library="images" name="user2-160x160.jpg"
 								alt="User profile picture"
 								class="profile-user-img img-responsive img-circle" />
-							<h3 class="profile-username text-center">Nina Mcintire</h3>
+							<h3 class="profile-username text-center">
+								<h:outputText value="#{loginBean.studentBean.username}" />
+							</h3>
 
-							<p class="text-muted text-center">Software Engineer</p>
+							<p class="text-muted text-center">Business Engineer</p>
 
 							<ul class="list-group list-group-unbordered">
 								<li class="list-group-item"><b>Followers</b> <a
@@ -39,8 +41,6 @@
 								<li class="list-group-item"><b>Friends</b> <a
 									class="pull-right">13,287</a></li>
 							</ul>
-
-							<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
 						</div>
 						<!-- /.box-body -->
 					</div>
@@ -55,32 +55,25 @@
 						<div class="box-body">
 							<strong><i class="fa fa-book margin-r-5"></i> Education</strong>
 
-							<p class="text-muted">B.S. in Computer Science from the
-								University of Tennessee at Knoxville</p>
+							<p class="text-muted">B.S. in Industrial Engineering and Management from the
+								Karlsruhe Institute of Technology</p>
 
 							<hr />
 							<strong><i class="fa fa-map-marker margin-r-5"></i>
 								Location</strong>
 
-							<p class="text-muted">Malibu, California</p>
+							<p class="text-muted">Karlsruhe</p>
 
 							<hr />
 							<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
 
 							<p>
-								<span class="label label-danger">UI Design</span> <span
-									class="label label-success">Coding</span> <span
+								<span class="label label-danger">Java</span> <span
+									class="label label-success">JavaServerFaces</span> <span
 									class="label label-info">Javascript</span> <span
 									class="label label-warning">PHP</span> <span
-									class="label label-primary">Node.js</span>
+									class="label label-primary">UI Design</span>
 							</p>
-
-							<hr />
-							<strong><i class="fa fa-file-text-o margin-r-5"></i>
-								Notes</strong>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Etiam fermentum enim neque.</p>
 						</div>
 						<!-- /.box-body -->
 					</div>
@@ -222,8 +215,8 @@
 								<!-- The timeline -->
 								<ul class="timeline timeline-inverse">
 									<!-- timeline time label -->
-									<li class="time-label"><span class="bg-red"> 10
-											Feb. 2014 </span></li>
+									<li class="time-label"><span class="bg-red"> 20
+											Dec. 2016 </span></li>
 									<!-- /.timeline-label -->
 									<!-- timeline item -->
 									<li><i class="fa fa-envelope bg-blue"></i>
