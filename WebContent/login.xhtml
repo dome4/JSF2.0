@@ -17,48 +17,49 @@
 			<!-- /.login-logo -->
 			<div class="login-box-body">
 				<p class="login-box-msg">Sign in to start your session</p>
-
-
-				<form action="../../index2.html" method="post">
+				<h:form>
 					<div class="form-group has-feedback">
 						<h:inputText id="username"
 							value="#{loginBean.studentBean.username}"
 							valueChangeListener="#{loginBean.changedUser}"
 							class="form-control">
 							<!-- Pass-Through-Attribute ersetzen HTML5 Tags -->
-							<!-- <input type="email" class="form-control" placeholder="Email"> -->
-							<f:passThroughAttribute name="type" value="email" />
-							<f:passThroughAttribute name="placeholder" value="Email" />
+							<!-- <input class="form-control" placeholder="Username"> -->
+							<f:passThroughAttribute name="placeholder" value="Username" />
 						</h:inputText>
 						<!-- hier wird die Fehlermedlung zurückgegeben -->
 						<h:message for="username" class="alert alert-danger alert-box" />
-						<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						<span class="glyphicon glyphicon-user form-control-feedback"></span>
 					</div>
 					<div class="form-group has-feedback">
-					<!-- TODO hier weiter machen -->
-						<input type="password" class="form-control" placeholder="Password" /><span
-							class="glyphicon glyphicon-lock form-control-feedback"></span>
+						<!-- TODO hier weiter machen -->
+						<h:inputSecret id="password"
+							value="#{loginBean.studentBean.password}" class="form-control">
+							<!-- <input type="password" class="form-control" placeholder="Password" /> -->
+							<f:passThroughAttribute name="placeholder" value="Password" />
+						</h:inputSecret>
+						<!-- hier wird die Fehlermedlung zurückgegeben -->
+						<h:message for="password" class="alert alert-danger alert-box" />
+						<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 					</div>
 					<div class="row">
-						<div class="col-xs-8">
-							<div class="checkbox icheck">
-								<label> <input type="checkbox" /> Remember Me
-								</label>
-							</div>
-						</div>
 						<!-- /.col -->
-						<div class="col-xs-4">
-							<button type="submit" class="btn btn-primary btn-block btn-flat">Sign
-								In</button>
+						<div class="col-xs-4" style="float: right;">
+
+							<h:commandButton id="button" value="Sign In"
+								binding="#{loginBean.button}" action="#{loginBean.login}"
+								class="btn btn-primary btn-block btn-flat" />
+							<h:message for="button" class="alert alert-danger alert-box" />
+
+							<!-- <button type="submit" class="btn btn-primary btn-block btn-flat">Sign
+								In</button> -->
 						</div>
 						<!-- /.col -->
 					</div>
-
-
-				</form>
-
-				<a href="register" class="text-center">Register a new membership</a>
-
+				</h:form>
+				<h:form>
+					<h:commandLink value="Register a new membership" action="register" />
+				</h:form>
 			</div>
 			<!-- /.login-box-body -->
 		</div>
