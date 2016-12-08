@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 /* Hier soll mit Annotationen die LoginBean unter dem Namen "loginBean" dem JSF-Framework bekannt gemacht werden
- *  und festgelegt werden, dass eine Instanz dieser Bean für eine ganze Sitzung besteht */
+ *  und festgelegt werden, dass eine Instanz dieser Bean fuer eine ganze Sitzung besteht */
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
@@ -30,11 +30,11 @@ public class LoginBean implements Serializable {
 	@ManagedProperty(value = "#{UIComponent}")
 	private UIComponent button;
 
-	/* alle nötigen Instanzvariablen deklarieren */
+	/* alle noetigen Instanzvariablen deklarieren */
 	@ManagedProperty(value = "#{studentBean}")
 	private StudentBean studentBean;
 
-	/* alle nötigen Methoden einer JavaBean angeben */
+	/* alle noetigen Methoden einer JavaBean angeben */
 	public StudentBean getStudentBean() {
 		return studentBean;
 	}
@@ -44,7 +44,7 @@ public class LoginBean implements Serializable {
 	}
 
 	public ArrayList<StudentBean> getListe() {
-		// nur der admin soll alle User sehen können
+		// nur der admin soll alle User sehen koennen
 		if (this.studentBean.getUsername().equals("admin")) {
 			return liste;
 		}
@@ -63,10 +63,10 @@ public class LoginBean implements Serializable {
 		this.button = button;
 	}
 
-	// Beispiel überlegen
+	// Beispiel ueberlegen
 	public void changedUser(ValueChangeEvent event) {
 		System.out.println("Der Username hat sich in der Eingabe von " + event.getOldValue() + " zu "
-				+ event.getNewValue() + " geändert.");
+				+ event.getNewValue() + " geaendert.");
 
 	}
 
@@ -74,7 +74,7 @@ public class LoginBean implements Serializable {
 	public String login() {
 		String user = "", pw = "";
 
-		// suche in der Liste der gespeichterten Nutzer
+		// suche in der Liste der gespeicherten Nutzer
 		for (StudentBean student : liste) {
 			if (studentBean.getUsername().equals(student.getUsername())) {
 				user = student.getUsername();
@@ -105,7 +105,7 @@ public class LoginBean implements Serializable {
 	}
 
 	/**
-	 * Methode fügt einen neuen Studenten hinzu
+	 * Methode fuegt einen neuen Studenten hinzu
 	 * 
 	 * @param student
 	 * @return StudentBean
@@ -118,7 +118,7 @@ public class LoginBean implements Serializable {
 	}
 
 	/**
-	 * Methode löscht übergebenen User
+	 * Methode loescht uebergebenen User
 	 * 
 	 * @return StudentBean
 	 * 

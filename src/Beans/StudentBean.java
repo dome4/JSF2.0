@@ -14,7 +14,7 @@ public class StudentBean implements Serializable {
 	/* alle noetigen Instanzvariablen deklarieren */
 	
 	
-	//Validierung ist auch direkt in h:inputTetxt mit required="true" möglich
+	//Validierung ist auch direkt in h:inputTetxt mit required="true" moeglich
 	@NotNull(message="darf nicht leer sein")
 	private String username, password;
 	@NotNull(message="Geschlecht muss angegeben werden")
@@ -27,6 +27,7 @@ public class StudentBean implements Serializable {
 	@Max(100)
 	private Integer age;
 	
+	/* Konstruktoren */
 	public StudentBean(){
 		this.username = "";
 		this.password ="";
@@ -37,7 +38,7 @@ public class StudentBean implements Serializable {
 	}
 	
 	/**
-	 * Methode prüft, ob der aktuelle User der Admin ist
+	 * Methode prueft, ob der aktuelle User der Admin ist
 	 * 
 	 * @return true or false
 	 */
