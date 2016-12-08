@@ -24,6 +24,9 @@ transitional.dtd">
 	<!-- Font Awesome -->
 	<h:outputStylesheet name="font-awesome.min.css" library="css" />
 
+	<!-- iCheck -->
+	<h:outputStylesheet name="blue.css" library="css"/>
+
 	<!-- own style -->
 	<h:outputStylesheet name="styles.css" library="css" />
 </h:head>
@@ -42,6 +45,8 @@ transitional.dtd">
 	<h:outputScript name="bootstrap.js" library="bootstrap/js/" />
 	<!-- AdminLTE App -->
 	<h:outputScript name="app.min.js" library="adminlte/js" />
+
+	<ui:insert name="javascript"></ui:insert>
 
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

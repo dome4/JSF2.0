@@ -1,4 +1,15 @@
+/*Validation Fehlermedlung*/
 .alert-box{
 	padding: 5px;
 	font-weight: bold;
+}
+/*Geschlecht-Input-Felder*/
+.gender-checkbox{
+	width: 100%;
+}
+.gender-checkbox>tbody>tr>td{
+	width: 50%;
+}
+.gender-checkbox>tbody>tr>td>label{
+	margin-left: 5px;
 }
