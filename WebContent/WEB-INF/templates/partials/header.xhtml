@@ -108,43 +108,46 @@
 							<li class="footer"><a href="#">View all tasks</a></li>
 						</ul>
 					</li>
-					<!-- User Account Menu -->
-					<li class="dropdown user user-menu">
-						<!-- Menu Toggle Button --> <a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <!-- The user image in the navbar--> <h:graphicImage
-								library="images" name="user2-160x160.jpg" alt="User Image"
-								styleClass="user-image" /> <!-- hidden-xs hides the username on small devices so only the image appears. -->
-							<span class="hidden-xs"><h:outputText
-									value="#{loginBean.studentBean.username}"
-									rendered="#{loginBean.studentBean.angemeldet}" /></span>
-					</a>
-						<ul class="dropdown-menu">
-							<!-- The user image in the menu -->
-							<li class="user-header"><h:graphicImage library="images"
-									name="user2-160x160.jpg" alt="User Image" class="img-circle" />
-								<p>
-									<h:outputText value="#{loginBean.studentBean.username}" />
-									<small>Member since Dec. 2016</small>
-								</p></li>
-							<!-- Menu Footer-->
-							<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
-							<li class="user-footer">
-								<div class="pull-left">
-									<h:form>
-										<h:commandLink value="Profile" action="profile"
-											class="btn btn-default btn-flat" />
-									</h:form>
-								</div>
-								<div class="pull-right">
-									<h:form>
-										<h:commandLink value="Sign out" action="#{loginBean.logout}"
-											class="btn btn-default btn-flat" />
-									</h:form>
-								</div>
-							</li>
-							</h:panelGroup>
-						</ul>
-					</li>
+					<!-- only display if user is online -->
+					<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu">
+							<!-- Menu Toggle Button --> <a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <!-- The user image in the navbar-->
+								<h:graphicImage library="images" name="user2-160x160.jpg"
+									alt="User Image" styleClass="user-image" /> <!-- hidden-xs hides the username on small devices so only the image appears. -->
+								<span class="hidden-xs"><h:outputText
+										value="#{loginBean.studentBean.username}"
+										rendered="#{loginBean.studentBean.angemeldet}" /></span>
+						</a>
+							<ul class="dropdown-menu">
+								<!-- The user image in the menu -->
+								<li class="user-header"><h:graphicImage library="images"
+										name="user2-160x160.jpg" alt="User Image" class="img-circle" />
+									<p>
+										<h:outputText value="#{loginBean.studentBean.username}" />
+										<small>Member since Dec. 2016</small>
+									</p></li>
+								<!-- Menu Footer-->
+								<h:panelGroup rendered="#{loginBean.studentBean.angemeldet}">
+									<li class="user-footer">
+										<div class="pull-left">
+											<h:form>
+												<h:commandLink value="Profile" action="profile"
+													class="btn btn-default btn-flat" />
+											</h:form>
+										</div>
+										<div class="pull-right">
+											<h:form>
+												<h:commandLink value="Sign out" action="#{loginBean.logout}"
+													class="btn btn-default btn-flat" />
+											</h:form>
+										</div>
+									</li>
+								</h:panelGroup>
+							</ul>
+						</li>
+					</h:panelGroup>
 					<!-- Control Sidebar Toggle Button -->
 					<li><a href="#" data-toggle="control-sidebar"><i
 							class="fa fa-gears"></i></a></li>
