@@ -68,21 +68,21 @@
 						</span>
 					</div>
 					<div class="row">
-						<div class="col-xs-8">
+						<div class="col-xs-8" style="padding-right: 0px;">
 							<div class="checkbox icheck">
 								<label> <h:selectBooleanCheckbox id="agb"
-										value="#{loginBean.studentBean.agb}" /> <h:message for="agb"
-										class="alert alert-danger alert-box" /> <!--  <input type="checkbox" />  -->
+										value="#{loginBean.studentBean.agb}" /> <!--  <input type="checkbox" />  -->
 									AGB akzeptieren
 								</label>
+
 							</div>
+							<h:message for="agb" class="alert alert-danger alert-box" />
 						</div>
 						<!-- /.col -->
 						<div class="col-xs-4">
 							<h:commandButton id="button" value="Register"
-								binding="#{loginBean.button}" action="#{loginBean.login}"
+								binding="#{loginBean.button}" action="#{loginBean.register}"
 								class="btn btn-primary btn-block btn-flat" />
-							<h:message for="button" class="alert alert-danger alert-box" />
 						</div>
 						<!-- /.col -->
 					</div>
@@ -91,6 +91,8 @@
 				<h:form>
 					<h:commandLink value="I already have a membership" action="login" />
 				</h:form>
+				<br />
+				<h:message for="button" class="alert alert-danger alert-box" />
 			</div>
 			<!-- /.form-box -->
 		</div>

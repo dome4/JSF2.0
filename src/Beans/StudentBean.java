@@ -96,5 +96,11 @@ public class StudentBean implements Serializable {
 	public void setAgb(boolean agb) {
 		this.agb = agb;
 	}
+	@Override
+	public String toString() {
+		return "StudentBean [username=" + username + ", password=" + password + ", geschlecht=" + geschlecht + ", agb="
+				+ agb + ", angemeldet=" + angemeldet + ", age=" + age + "]";
+	}
+	
 
 }

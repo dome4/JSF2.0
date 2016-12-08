@@ -12,6 +12,10 @@ import javax.faces.event.ValueChangeEvent;
 
 /* Hier soll mit Annotationen die LoginBean unter dem Namen "loginBean" dem JSF-Framework bekannt gemacht werden
  *  und festgelegt werden, dass eine Instanz dieser Bean für eine ganze Sitzung besteht */
+/**
+ * @author dominic
+ *
+ */
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
@@ -70,7 +74,11 @@ public class LoginBean implements Serializable {
 
 	}
 
-	/**/
+	/**
+	 * Methode prüft, ob der Nutzer in der Datenbank gelistet ist
+	 * 
+	 * @return index-page
+	 */
 	public String login() {
 		String user = "", pw = "";
 
@@ -82,6 +90,7 @@ public class LoginBean implements Serializable {
 				break;
 			}
 		}
+		
 		if (studentBean.getUsername().equals(user) && studentBean.getPassword().equals(pw) && !user.isEmpty()) {
 			studentBean.setAngemeldet(true);
 			return "index";
@@ -95,6 +104,44 @@ public class LoginBean implements Serializable {
 	}
 
 	/**
+	 * Methode registriert einen neuen User
+	 * 
+	 * @return index-page
+	 */
+	public String register() {
+
+		// wenn Student noch nicht gelistet wurde
+		if (!this.findUser()) {
+			liste.add(studentBean);
+			
+			this.login();
+			
+			return "index";
+		}else {
+			//username existiert bereits
+			FacesContext context = FacesContext.getCurrentInstance();
+
+			context.addMessage(button.getClientId(), new FacesMessage("Username existiert bereits"));
+			return null;
+		}
+	}
+	
+	
+	/**
+	 * Methode schaut in der Datenbank, ob es den aktuellen Usernamen bereits gibt
+	 * 
+	 * @return true or false
+	 */
+	public boolean findUser(){
+		for(StudentBean student : liste){
+			if(this.studentBean.getUsername().equalsIgnoreCase(student.getUsername())){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Methode loggt den aktuellen User aus
 	 * 
 	 * @return index.xhtml
@@ -104,30 +151,6 @@ public class LoginBean implements Serializable {
 		return "index";
 	}
 
-	/**
-	 * Methode fügt einen neuen Studenten hinzu
-	 * 
-	 * @param student
-	 * @return StudentBean
-	 * 
-	 */
-	public StudentBean addUser(StudentBean student) {
-		liste.add(student);
-
-		return student;
-	}
-
-	/**
-	 * Methode löscht übergebenen User
-	 * 
-	 * @return StudentBean
-	 * 
-	 */
-	public StudentBean deleteUser() {
-		liste.remove(this.studentBean);
-
-		return this.studentBean;
-	}
 
 	/**
 	 * Die Methode gibt einen zufälligen Nutzer zurück, um auf der Profil-Seite
