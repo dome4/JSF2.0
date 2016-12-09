@@ -18,7 +18,9 @@ import javax.faces.event.ValueChangeEvent;
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static ArrayList<StudentBean> liste = new ArrayList<StudentBean>(Arrays.asList(new StudentBean("admin"),
+	
+	//Datenbank mit allen Usern
+	private ArrayList<StudentBean> liste = new ArrayList<StudentBean>(Arrays.asList(new StudentBean("admin"),
 			new StudentBean("Timm"), new StudentBean("Jonas"), new StudentBean("Kilian"), new StudentBean("Marco"),
 			new StudentBean("Florian"), new StudentBean("Julian"), new StudentBean("Lucas"),
 			new StudentBean("Alexander"), new StudentBean("Philipp"), new StudentBean("Christian"),
@@ -156,11 +158,11 @@ public class LoginBean implements Serializable {
 	}
 
 	public ArrayList<StudentBean> getListe() {
-		return liste;
+		return this.liste;
 	}
 
 	public void setListe(ArrayList<StudentBean> liste) {
-		LoginBean.liste = liste;
+		this.liste = liste;
 	}
 
 	public UIComponent getButton() {
