@@ -90,7 +90,7 @@ public class LoginBean implements Serializable {
 				break;
 			}
 		}
-		
+
 		if (studentBean.getUsername().equals(user) && studentBean.getPassword().equals(pw) && !user.isEmpty()) {
 			studentBean.setAngemeldet(true);
 			return "index";
@@ -113,28 +113,28 @@ public class LoginBean implements Serializable {
 		// wenn Student noch nicht gelistet wurde
 		if (!this.findUser()) {
 			liste.add(studentBean);
-			
+
 			this.login();
-			
+
 			return "index";
-		}else {
-			//username existiert bereits
+		} else {
+			// username existiert bereits
 			FacesContext context = FacesContext.getCurrentInstance();
 
 			context.addMessage(button.getClientId(), new FacesMessage("Username existiert bereits"));
 			return null;
 		}
 	}
-	
-	
+
 	/**
-	 * Methode schaut in der Datenbank, ob es den aktuellen Usernamen bereits gibt
+	 * Methode schaut in der Datenbank, ob es den aktuellen Usernamen bereits
+	 * gibt
 	 * 
 	 * @return true or false
 	 */
-	public boolean findUser(){
-		for(StudentBean student : liste){
-			if(this.studentBean.getUsername().equalsIgnoreCase(student.getUsername())){
+	public boolean findUser() {
+		for (StudentBean student : liste) {
+			if (this.studentBean.getUsername().equalsIgnoreCase(student.getUsername())) {
 				return true;
 			}
 		}
@@ -150,7 +150,6 @@ public class LoginBean implements Serializable {
 		this.studentBean = new StudentBean();
 		return "index";
 	}
-
 
 	/**
 	 * Die Methode gibt einen zufälligen Nutzer zurück, um auf der Profil-Seite
