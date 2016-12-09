@@ -3,52 +3,63 @@ package Beans;
 import java.io.Serializable;
 import javax.faces.bean.*;
 import javax.validation.constraints.*;
+
 /* Hier soll mit Annotationen die StudentBean unter dem Namen "studentBean" dem JSF-Framework bekannt gemacht werden
  *  und festgelegt werden, dass eine Instanz dieser Bean fuer eine ganze Sitzung besteht */
 @ManagedBean(name = "studentBean")
 @SessionScoped
 public class StudentBean implements Serializable {
-	
+
+	//Interface Serializable erfordert diese ID
 	private static final long serialVersionUID = 2L;
-	
+
 	/* alle noetigen Instanzvariablen deklarieren */
-	
-	
-	//Validierung ist auch direkt in h:inputTetxt mit required="true" möglich
-	@NotNull(message="darf nicht leer sein")
+
+	// Validierung ist auch direkt in h:inputTetxt mit required="true" moeglich
+	@NotNull(message = "darf nicht leer sein")
 	private String username, password;
-	@NotNull(message="Geschlecht muss angegeben werden")
-	private String geschlecht;	
-	@AssertTrue(message="AGB muessen akzeptiert werden")
+	@NotNull(message = "Geschlecht muss angegeben werden")
+	private String geschlecht;
+	@AssertTrue(message = "AGB muessen akzeptiert werden")
 	private boolean agb;
 	private boolean angemeldet;
-	@NotNull(message="darf nicht leer sein")
+	@NotNull(message = "Alter muss angegeben werden")
 	@Min(18)
 	@Max(100)
 	private Integer age;
-	
-	public StudentBean(){
+
+	/**
+	 * Default-Konstruktor
+	 * 
+	 */
+	public StudentBean() {
 		this.username = "";
-		this.password ="";
+		this.password = "";
 	}
-	public StudentBean(String string){
+
+	/**
+	 * Konstruktor, der den Username uebergeben bekommt
+	 * 
+	 * @param string
+	 */
+	public StudentBean(String string) {
 		this.username = string;
-		this.password = "pw:"+string;
+		this.password = "pw:" + string;
 	}
-	
+
 	/**
 	 * Methode prüft, ob der aktuelle User der Admin ist
 	 * 
 	 * @return true or false
 	 */
-	public boolean isAdmin(){
-		if(this.username.equalsIgnoreCase("admin")){
+	public boolean isAdmin() {
+		if (this.username.equalsIgnoreCase("admin")) {
 			return true;
 		}
 		return false;
 	}
-	
-	/* alle noetigen Methoden einer JavaBean angeben */
+
+	// Getter- und Setter-Methoden
 	public String getUsername() {
 		return username;
 	}
@@ -96,11 +107,12 @@ public class StudentBean implements Serializable {
 	public void setAgb(boolean agb) {
 		this.agb = agb;
 	}
+
+	// toString
 	@Override
 	public String toString() {
 		return "StudentBean [username=" + username + ", password=" + password + ", geschlecht=" + geschlecht + ", agb="
 				+ agb + ", angemeldet=" + angemeldet + ", age=" + age + "]";
 	}
-	
 
 }

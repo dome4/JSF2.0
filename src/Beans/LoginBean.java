@@ -11,11 +11,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 /* Hier soll mit Annotationen die LoginBean unter dem Namen "loginBean" dem JSF-Framework bekannt gemacht werden
- *  und festgelegt werden, dass eine Instanz dieser Bean für eine ganze Sitzung besteht */
-/**
- * @author dominic
- *
- */
+ *  und festgelegt werden, dass eine Instanz dieser Bean fuer eine ganze Sitzung besteht */
+
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
@@ -34,40 +31,11 @@ public class LoginBean implements Serializable {
 	@ManagedProperty(value = "#{UIComponent}")
 	private UIComponent button;
 
-	/* alle nötigen Instanzvariablen deklarieren */
+	// diese StudentBean entspricht immer dem akutellen User
 	@ManagedProperty(value = "#{studentBean}")
 	private StudentBean studentBean;
 
-	/* alle nötigen Methoden einer JavaBean angeben */
-	public StudentBean getStudentBean() {
-		return studentBean;
-	}
-
-	public void setStudentBean(StudentBean studentBean) {
-		this.studentBean = studentBean;
-	}
-
-	public ArrayList<StudentBean> getListe() {
-		// nur der admin soll alle User sehen können
-		/*
-		 * if (this.studentBean.getUsername().equals("admin")) { return liste; }
-		 */
-		return liste;
-	}
-
-	public void setListe(ArrayList<StudentBean> liste) {
-		LoginBean.liste = liste;
-	}
-
-	public UIComponent getButton() {
-		return this.button;
-	}
-
-	public void setButton(UIComponent button) {
-		this.button = button;
-	}
-
-	// Beispiel überlegen
+	// Beispiel ueberlegen, was man mit diesem Event machen koennte
 	public void changedUser(ValueChangeEvent event) {
 		System.out.println("Der Username hat sich in der Eingabe von " + event.getOldValue() + " zu "
 				+ event.getNewValue() + " geändert.");
@@ -82,7 +50,7 @@ public class LoginBean implements Serializable {
 	public String login() {
 		String user = "", pw = "";
 
-		// suche in der Liste der gespeichterten Nutzer
+		// suche in der Liste der gespeicherten Nutzer
 		for (StudentBean student : liste) {
 			if (studentBean.getUsername().equals(student.getUsername())) {
 				user = student.getUsername();
@@ -176,5 +144,30 @@ public class LoginBean implements Serializable {
 		this.logout();
 
 		return "login";
+	}
+
+	// Getter- und Setter-Methoden
+	public StudentBean getStudentBean() {
+		return studentBean;
+	}
+
+	public void setStudentBean(StudentBean studentBean) {
+		this.studentBean = studentBean;
+	}
+
+	public ArrayList<StudentBean> getListe() {
+		return liste;
+	}
+
+	public void setListe(ArrayList<StudentBean> liste) {
+		LoginBean.liste = liste;
+	}
+
+	public UIComponent getButton() {
+		return this.button;
+	}
+
+	public void setButton(UIComponent button) {
+		this.button = button;
 	}
 }
