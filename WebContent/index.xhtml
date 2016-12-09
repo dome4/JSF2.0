@@ -37,12 +37,13 @@
 									<!-- angemeldet -->
 									<h:outputText
 										value="Sie sind als #{loginBean.studentBean.username} angemeldet." />
-										<br />
+									<br />
 									<h:outputText
 										value="Gender: #{loginBean.studentBean.geschlecht}" />
 									<br />
 									<br />
-									<h:commandLink value="Benutzer wechseln" action="/login.xhtml"
+									<h:commandLink value="Benutzer wechseln"
+										action="#{loginBean.changeUser}"
 										class="btn btn-default btn-flat" />
 								</h:panelGroup>
 							</h:form>

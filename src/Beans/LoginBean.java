@@ -49,10 +49,10 @@ public class LoginBean implements Serializable {
 
 	public ArrayList<StudentBean> getListe() {
 		// nur der admin soll alle User sehen können
-		if (this.studentBean.getUsername().equals("admin")) {
-			return liste;
-		}
-		return null;
+		/*
+		 * if (this.studentBean.getUsername().equals("admin")) { return liste; }
+		 */
+		return liste;
 	}
 
 	public void setListe(ArrayList<StudentBean> liste) {
@@ -162,5 +162,19 @@ public class LoginBean implements Serializable {
 		StudentBean user = liste.get(index);
 
 		return user.getUsername();
+	}
+
+	/**
+	 * Methode dient zum Wechseln des Users
+	 * 
+	 * @return login-page
+	 */
+	public String changeUser() {
+
+		// Benutzer muss zuerst ausgeloggt werden, sonst wird keine neue
+		// StudentBean-Instanz erzeugt
+		this.logout();
+
+		return "login";
 	}
 }
