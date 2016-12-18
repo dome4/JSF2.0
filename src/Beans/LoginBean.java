@@ -61,7 +61,7 @@ public class LoginBean implements Serializable {
 			}
 		}
 
-		if (studentBean.getUsername().equals(user) && studentBean.getPassword().equals(pw) && !user.isEmpty()) {
+		if (studentBean.getPassword().equals(pw) && !user.isEmpty()) {
 			studentBean.setAngemeldet(true);
 			return "index";
 		} else {
